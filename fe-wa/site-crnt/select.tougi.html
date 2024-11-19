@@ -1,0 +1,134 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>select.tougi</title>
+<style type="text/css">
+.row {
+  position:relative;
+  color:blue;
+}
+.col2 {
+  position:absolute;
+  left:180px;
+}
+.col3 {
+  position:absolute;
+  left:240px;
+}
+.col4 {
+  position:absolute;
+  left:300px;
+}
+</style>
+<script>
+var doc = document;
+
+var getTougi = function(){
+  var url = 'http://ooq.jp/pri/game/fe.wa/api/select.tougi.php';
+
+  var charas;
+  var chara = doc.getElementById("chara").value;
+  var _charas = [
+    ["anna", "アンナ"],
+    ["azura", "アクア"],
+    ["camilla", "カミラ"],
+    ["ceada", "シーダ"],
+    ["celica", "セリカ"],
+    ["chrom", "クロム"],
+    ["cordelia", "ティアモ"],
+    ["corrin", "カムイ"],
+    ["darios", "ダリオス"],
+    ["elise", "エリーゼ"],
+    ["frederick", "フレデリク"],
+    ["gharnef", "ガーネフ"],
+    ["hinoka", "ヒノカ"],
+    ["iago", "マクベス"],
+    ["leo", "レオン"],
+    ["lianna", "リアン"],
+    ["linde", "リンダ"],
+    ["lissa", "リズ"],
+    ["lucina", "ルキナ"],
+    ["lyn", "リン"],
+    ["marth", "マルス"],
+    ["minerva", "ミネルバ"],
+    ["navarre", "ナバール"],
+    ["niles", "ゼロ"],
+    ["oboro", "オボロ"],
+    ["olivia", "オリヴィエ"],
+    ["owain", "ウード"],
+    ["robin", "ルフレ"],
+    ["rowan", "シオン"],
+    ["ryoma", "リョウマ"],
+    ["sakura", "サクラ"],
+    ["takumi", "タクミ"],
+    ["tharja", "サーリャ"],
+    ["tiki", "チキ"],
+    ["validar", "ファウダー"],
+    ["velezark", "イビルザーグ"],
+    ["xander", "マークス"]
+  ];
+  // 日本名から英名へ変換
+  chara = chara.trim();
+  chara = chara.replace(/[ 　,、]+/g, ",");
+  charas = chara.split(",");
+  for(var i=0; i<charas.length; i++){
+    for(var j=0; j<_charas.length; j++){
+      if(charas[i] == _charas[j][0])break;
+      if(charas[i] == _charas[j][1]){
+        charas[i] = _charas[j][0];
+        break;
+      }
+    }
+  }
+  chara = charas.join(",");
+  // console.log(chara);
+
+  var req = new XMLHttpRequest();
+  req.open("GET", url + '?chara=' + chara);
+  req.addEventListener("load", (event) => {
+    // console.log(event.target.status);
+
+    var battles = JSON.parse(event.target.responseText);
+    var rows = doc.getElementById("rows");
+    var row;
+    rows.textContent = null;
+    for(var i=0; i<battles.length; i++){
+      row = doc.getElementById("row_tpl").cloneNode(true);
+      row.removeAttribute("id");
+      row.style.display = "block";
+      setVals(row, battles[i]);
+      rows.appendChild(row);
+    }
+  });
+  req.send();
+}
+var setVals = function(row, battle){
+  var cols = ["map", "x", "y", "lv", "battle", "name", "atr"];
+  for(var i=0; i<cols.length; i++){
+    row.getElementsByClassName(cols[i])[0].innerText = battle[cols[i]];
+  }
+}
+</script>
+</head>
+<body>
+<form action="javascript:getTougi()">
+  <div>
+    <input id="chara" type="text" 
+      placeholder="例) カムイ アクア と入力してエンター" 
+      style="font-size:25px;" size="36">
+  </div>
+</form>
+
+<div id="rows">
+</div>
+
+<!-- 行要素のテンプレート -->
+<div id="row_tpl" class="row" style="display:none;">
+  <span class="col1"> <span class="map"></span> </span>
+  <span class="col2"> [<span class="x"></span>, <span class="y"></span>] </span>
+  <span class="col3"> lv:<span class="lv"></span> </span>
+  <span class="col4"> <span class="battle"></span> <span class="atr"></span>回戦 <span class="name"></span> </span>
+</div>
+
+</body>
+</html>

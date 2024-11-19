@@ -1,0 +1,18 @@
+[
+  {"no": 1,  "map": "unmei",    "name": "運命か、絆か"},
+  {"no": 2,  "map": "sonote",   "name": "その手が拓く未来"},
+  {"no": 3,  "map": "akuno",    "name": "悪の司祭ガーネフ"},
+  {"no": 4,  "map": "kiaran",   "name": "キアランの公女"},
+  {"no": 5,  "map": "saikai",   "name": "再開　そして・・・"},
+  {"no": 6,  "map": "eiyuu",    "name": "英雄闘技"},
+  {"no": 7,  "map": "nageki",   "name": "嘆きの獣"},
+  {"no": 8,  "map": "kamigami", "name": "神々の座す国"},
+  {"no": 9,  "map": "koori",    "name": "氷の村"},
+  {"no": 10, "map": "devil",    "name": "デビルマウンテン"},
+  {"no": 11, "map": "princess", "name": "プリンセス・ミネルバ"},
+  {"no": 12, "map": "norda",    "name": "ノルダの市場"},
+  {"no": 13, "map": "densetu",  "name": "伝説の継承者"},
+  {"no": 14, "map": "seiou",    "name": "聖王エメリナ"},
+  {"no": 15, "map": "caravan",  "name": "キャラバンの踊り子"}
+]
+

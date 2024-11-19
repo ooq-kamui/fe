@@ -1,0 +1,50 @@
+
+CREATE TABLE `_chara` (
+  `chara` varchar(16) NOT NULL,
+  `name` varchar(128) DEFAULT NULL,
+  `gender` varchar(10) DEFAULT NULL,
+  PRIMARY KEY (`chara`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `_chara` VALUES
+('alois','アロイス','m'),
+('anna','アンナ','f'),
+('annette','アネット','f'),
+('ashe','アッシュ','m'),
+('bernadetta','ベルナデッタ','f'),
+('byleth','ベレス',' '),
+('caspar','カスパル','m'),
+('catherine','カトリーヌ','f'),
+('claude','クロード','m'),
+('cyril','チリル','m'),
+('dedue','ドゥドゥー','m'),
+('dimitri','ディミトリ','m'),
+('dorothea','ドロテア','f'),
+('edelgard','エーデルガルト','f'),
+('felix','フェリクス','m'),
+('ferdinand','フェルディナント','m'),
+('flayn','フレン','f'),
+('gilbert','ギルベルト','m'),
+('hanneman','ハンネマン','m'),
+('hilda','ヒルダ','f'),
+('hubert','ヒューベルト','m'),
+('ignatz','イグナーツ','m'),
+('ingrid','イングリット','f'),
+('jeralt','ジェラルト','m'),
+('leonie','レオニー','f'),
+('linhardt','リンハルト','m'),
+('lorenz','ローレンツ','m'),
+('lysithea','リシテア','f'),
+('manuela','マヌエラ','f'),
+('marianne','マリアンヌ','f'),
+('mercedes','メルセデス','f'),
+('petra','ペトラ','f'),
+('raphael','ラファエル','m'),
+('rhea','レア','f'),
+('seteth','セテス','m'),
+('shamir','シャミア','f'),
+('sothis','ソティス','f'),
+('sylvain','シルヴァン','m')
+;
+
+

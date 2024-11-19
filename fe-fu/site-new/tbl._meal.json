@@ -1,0 +1,45 @@
+
+CREATE TABLE `_meal` (
+  `odr` int(11) NOT NULL,
+  `meal` varchar(32) NOT NULL,
+  `name_e` varchar(128) DEFAULT NULL,
+  `name` varchar(128) DEFAULT NULL,
+  PRIMARY KEY (`meal`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+INSERT INTO `_meal` VALUES
+(17,'bounty-fisherman','fisherman’s bounty','豪快漁師飯'),
+(20,'bourgeois-pike','bourgeois pike','パイクの贅沢グリル'),
+(2,'bun-trio','sweet bun trio','ブルゼン'),
+(24,'dango-fish','super-spicy fish dango','激辛魚団子'),
+(32,'fried-crayfish','fried crayfish','ザリガニのフライ'),
+(9,'fried-pheasant','derdriu-style fried pheasant','キジの揚げ焼きデアドラ風'),
+(29,'gratin-cheese','gautier cheese gratin','ゴーティエチーズグラタン'),
+(14,'grilled-herring','grilled herring','ニシンの土鍋焼き'),
+(10,'pasta-vegetable','vegetable pasta salad','野菜たっぷりサラダパスタ'),
+(4,'peach-sorbet','peach sorbet','桃のシャーベット'),
+(28,'pickled-seafood','pickled seafood and vegetables','魚介と野菜の酢漬け'),
+(26,'pie-meet-garregmach','garreg mach meat pie','ガルグ＝マク風ミートパイ'),
+(12,'plate-turnip','country-style red turnip plate','赤カブ尽くしの田舎風料理'),
+(3,'roast-pheasant','pheasant roast with berry sauce','ベリー風味のキジロースト'),
+(1,'saghert-cream','saghert and cream','サガルトのクリーム添え'),
+(18,'sandwich-fish','fish sandwich','フィッシュサンド'),
+(19,'saute-fish-2','two-fish saute','2種の魚のバター焼き'),
+(23,'saute-fish-white','sweet and salty whitefish saute','白身魚の甘辛炒め'),
+(21,'saute-jerky-garregmach','sauteed jerky','ガルグ＝マク風干し肉炒め'),
+(25,'saute-pheasant-egg','sauteed pheasant and eggs','山鳥の親子焼き'),
+(31,'skewers-fish','small fish skewers','雑魚の串焼き'),
+(8,'skewers-meet','gronder meat skewers','熟成肉の串焼き'),
+(6,'skewers-rabbit','pickled rabbit skewers','バクス漬けウサギの串焼き'),
+(15,'soup-fish-bean','fish and bean soup','魚と豆のスープ'),
+(11,'soup-gratin-onion','onion gratin soup','タマネギのグラタンスープ'),
+(30,'stew-cabbage','cabbage and herring stew','キャベツの丸煮込み'),
+(7,'stew-daphnel','daphnel stew','ダフネルシチュー'),
+(22,'stew-turnip','spicy fish and turnip stew','魚とカブの辛味煮込み'),
+(27,'stew-verona','cheesy verona stew','煮込みヴェローナを添えて'),
+(13,'stir-fry','vegetable stir-fry','満腹野菜炒め'),
+(16,'tart-herring','fruit and herring tart','ニシンと木の実のタルト'),
+(5,'teppanyaki','beast meat teppanyaki','獣肉の鉄板焼き')
+;
+
+

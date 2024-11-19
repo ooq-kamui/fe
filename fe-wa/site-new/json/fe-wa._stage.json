@@ -1,0 +1,16 @@
+[
+  {"stage": "aitris",     "name": "アイトリス市街"},
+  {"stage": "aitrisjou",  "name": "アイトリス城"},
+  {"stage": "daiheigen",  "name": "大平原"},
+  {"stage": "furaku",     "name": "不落の城塞"},
+  {"stage": "ikai",       "name": "異界の狭間"},
+  {"stage": "jouya",      "name": "常夜の城"},
+  {"stage": "nitirin",    "name": "日輪の城"},
+  {"stage": "ouryou",     "name": "王領の森"},
+  {"stage": "ryuu",       "name": "竜の谷"},
+  {"stage": "sabaku",     "name": "砂漠の闘技場"},
+  {"stage": "sankyou",    "name": "山峡の荒野"},
+  {"stage": "sekaiju",    "name": "世界樹"},
+  {"stage": "sikkoku",    "name": "漆黒の火山"}
+]
+

@@ -1,0 +1,133 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<title>select.tougi</title>
+<style type="text/css">
+.row {
+  position:relative;
+  color:blue;
+}
+.col2 {
+  position:absolute;
+  left:180px;
+}
+.col3 {
+  position:absolute;
+  left:240px;
+}
+.col4 {
+  position:absolute;
+  left:300px;
+}
+</style>
+<script>
+var doc = document;
+
+var getTougi = function(){
+  var url = 'https://ooq.jp/pri/game/fe.fu/api/select.meal.php';
+
+  var charas;
+  var chara = doc.getElementById("chara").value;
+  var _charas = [
+    ["alois", "アロイス"],
+    ["anna", "アンナ"],
+    ["annette", "アネット"],
+    ["ashe", "アッシュ"],
+    ["bernadetta", "ベルナデッタ"],
+    ["byleth", "ベレス"],
+    ["caspar", "カスパル"],
+    ["catherine", "カトリーヌ"],
+    ["claude", "クロード"],
+    ["cyril", "チリル"],
+    ["dedue", "ドゥドゥー"],
+    ["dimitri", "ディミトリ"],
+    ["dorothea", "ドロテア"],
+    ["edelgard", "エーデルガルト"],
+    ["felix", "フェリクス"],
+    ["ferdinand", "フェルディナント"],
+    ["flayn", "フレン"],
+    ["gilbert", "ギルベルト"],
+    ["hanneman", "ハンネマン"],
+    ["hilda", "ヒルダ"],
+    ["hubert", "ヒューベルト"],
+    ["ignatz", "イグナーツ"],
+    ["ingrid", "イングリット"],
+    ["jeralt", "ジェラルト"],
+    ["leonie", "レオニー"],
+    ["linhardt", "リンハルト"],
+    ["lorenz", "ローレンツ"],
+    ["lysithea", "リシテア"],
+    ["manuela", "マヌエラ"],
+    ["marianne", "マリアンヌ"],
+    ["mercedes", "メルセデス"],
+    ["petra", "ペトラ"],
+    ["raphael", "ラファエル"],
+    ["rhea", "レア"],
+    ["seteth", "セテス"],
+    ["shamir", "シャミア"],
+    ["sothis", "ソティス"],
+    ["sylvain", "シルヴァン"]
+  ];
+  // 日本名から英名へ変換
+  chara = chara.trim();
+  chara = chara.replace(/[ 　,、]+/g, ",");
+  charas = chara.split(",");
+  for(var i=0; i<charas.length; i++){
+    for(var j=0; j<_charas.length; j++){
+      if(charas[i] == _charas[j][0])break;
+      if(charas[i] == _charas[j][1]){
+        charas[i] = _charas[j][0];
+        break;
+      }
+    }
+  }
+  chara = charas.join(",");
+  // console.log(chara);
+
+  var req = new XMLHttpRequest();
+  req.open("GET", url + '?chara=' + chara);
+  console.log(url + '?chara=' + chara);
+  req.addEventListener("load", (event) => {
+    console.log(event.target.status);
+
+    var meals = JSON.parse(event.target.responseText);
+    var rows = doc.getElementById("rows");
+    var row;
+    rows.textContent = null;
+    for(var i=0; i<meals.length; i++){
+      row = doc.getElementById("row_tpl").cloneNode(true);
+      row.removeAttribute("id");
+      row.style.display = "block";
+      setVals(row, meals[i]);
+      rows.appendChild(row);
+    }
+  });
+  req.send();
+}
+var setVals = function(row, meal){
+  var cols = ["name"];
+  for(var i=0; i<cols.length; i++){
+    row.getElementsByClassName(cols[i])[0].innerText = meal[cols[i]];
+  }
+}
+</script>
+</head>
+<body>
+<form action="javascript:getTougi()">
+  <div>
+    <input id="chara" type="text" 
+      placeholder="例) イングリット リシテア と入力してエンター" 
+      style="font-size:25px;" size="32">
+  </div>
+</form>
+
+<div id="rows">
+</div>
+
+<!-- 行要素のテンプレート -->
+<div id="row_tpl" class="row" style="display:none;">
+  <span class="col1"> <span class="name"></span> </span>
+</div>
+
+</body>
+</html>
