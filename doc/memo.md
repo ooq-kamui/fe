@@ -4,14 +4,16 @@
 
 ## fe-wa
 
-tbl join 
-- research
+js cre
+- tbl join 
+  - research
 
 
 ## fe-fu
 
-json cre
-- dmp > json
+js cre
+- tbl join 
+  - research
 
 
 
